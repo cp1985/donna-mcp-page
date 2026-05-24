@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donna MCP — Substack Content System for Claude</title>
+  <meta name="description" content="An MCP server that turns Claude into a Substack content specialist. Your voice. Your strategy. Saved in your own Notion workspace." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --border: #252525;
+      --text: #e8e8e8;
+      --muted: #888;
+      --accent: #c9a96e;
+      --accent-dim: rgba(201, 169, 110, 0.12);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo { font-weight: 600; font-size: 15px; letter-spacing: 0.01em; }
+    .nav-logo span { color: var(--accent); }
+    .nav-link {
+      font-size: 14px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 7px 16px;
+      border-radius: 6px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .nav-link:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(201, 169, 110, 0.25);
+      border-radius: 20px;
+      padding: 4px 12px;
+      margin-bottom: 28px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #0d0d0d;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 13px 28px;
+      border-radius: 8px;
+      transition: opacity 0.15s;
+    }
+    .hero-cta:hover { opacity: 0.88; text-decoration: none; }
+
+    /* Section titles */
+    section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+
+    /* Tool grid */
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .tool {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+    .tool-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      font-family: "SF Mono", "Fira Code", monospace;
+      margin-bottom: 6px;
+    }
+    .tool-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Steps */
+    .steps { display: flex; flex-direction: column; gap: 20px; }
+    .step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(201, 169, 110, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .step-body h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .step-body p { font-size: 14px; color: var(--muted); }
+    code {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 13px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      color: var(--text);
+    }
+
+    /* What it isn't */
+    .limits { display: flex; flex-direction: column; gap: 10px; }
+    .limit {
+      font-size: 14px;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+    }
+    .limit::before {
+      content: "✕";
+      position: absolute;
+      left: 0;
+      color: #555;
+      font-size: 12px;
+    }
+
+    /* CTA block */
+    .cta-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 48px 40px;
+      text-align: center;
+    }
+    .cta-block h2 { margin-bottom: 12px; }
+    .cta-block p { color: var(--muted); margin-bottom: 28px; font-size: 15px; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 56px 0 48px; }
+      .cta-block { padding: 32px 24px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-logo"><span>Donna</span> MCP</div>
+      <a href="#get" class="nav-link">Get access</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">MCP Server · Claude · Substack</div>
+      <h1>Your Substack content system,<br>built <em>into</em> Claude.</h1>
+      <p class="hero-sub">
+        Donna is an MCP server that gives Claude a specialist briefing for Substack creators.
+        Your voice, strategy, and memory live in your own Notion workspace — not on our servers.
+      </p>
+      <a href="#get" class="hero-cta">Get Donna →</a>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section>
+    <div class="container">
+      <div class="section-label">What it does</div>
+      <h2>10 tools. One context.</h2>
+      <div class="tools">
+        <div class="tool">
+          <div class="tool-name">suggest_topics</div>
+          <div class="tool-desc">3–5 topic ideas from your strategy and audience — not generic advice.</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">write_note</div>
+          <div class="tool-desc">150–280 word Substack Notes in your voice. Punchy, opinionated, ready to post.</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">write_essay</div>
+          <div class="tool-desc">Full 800–1,200 word essays. Structure planned before a word is written. SEO mode included.</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">write_hook</div>
+          <div class="tool-desc">3 alternative opening lines for any topic — different angles, different energy.</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">write_comment_reply</div>
+          <div class="tool-desc">Replies that add something — not just agreement. Sounds like you, not a community manager.</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">build_content_plan</div>
+          <div class="tool-desc">30-day plan of essays, notes, and themes — built around your actual cadence.</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">check_strategy</div>
+          <div class="tool-desc">What's working, what's broken, and the single highest-leverage change to make right now.</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">analyze_signal</div>
+          <div class="tool-desc">Paste engagement data. Get a direct read on what it means and what to do next.</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">log_decision</div>
+          <div class="tool-desc">Formats strategic decisions and tells you how they change your content going forward.</div>
+        </div>
+        <div class="tool">
+          <div class="tool-name">audit_substack</div>
+          <div class="tool-desc">One-time setup. Reads your newsletter and builds your Creator Portrait — your writing DNA.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section>
+    <div class="container">
+      <div class="section-label">Setup</div>
+      <h2>Running in under 10 minutes.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Buy on Gumroad</h3>
+            <p>You'll receive your API key by email immediately after purchase.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Add Donna to your Claude project</h3>
+            <p>Create a dedicated Claude project → connect Donna MCP with your API key → paste the provided project instructions.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Connect Notion and run the one-time audit</h3>
+            <p>Connect the Notion MCP → run <code>audit_substack</code> with your Substack URL → Donna builds your Creator Portrait and saves it to your Notion workspace. All tools are active from that point forward.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What it isn't -->
+  <section>
+    <div class="container">
+      <div class="section-label">Scope</div>
+      <h2>What Donna doesn't do.</h2>
+      <div class="limits">
+        <div class="limit">Does not post content on your behalf — Donna writes it, you publish it.</div>
+        <div class="limit">Does not send emails or DMs for you.</div>
+        <div class="limit">Does not access your Substack analytics dashboard directly.</div>
+        <div class="limit">Does not handle payments or billing on your platform.</div>
+        <div class="limit">Does not store your voice data on our servers — it lives in your own Notion workspace.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="get">
+    <div class="container">
+      <div class="cta-block">
+        <h2>Get Donna</h2>
+        <p>One-time payment. Your API key is delivered immediately after purchase.</p>
+        <a href="#" class="hero-cta" id="gumroad-link">Buy on Gumroad →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Donna MCP &mdash; built for Substack creators using Claude.
+    </div>
+  </footer>
+
+</body>
+</html>
