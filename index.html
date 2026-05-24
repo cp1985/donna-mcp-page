@@ -168,25 +168,27 @@
     .outcome h3 { color: var(--text); }
     .outcome p { margin-bottom: 0; }
 
-    /* Social proof */
-    .testimonials { display: flex; flex-direction: column; gap: 20px; margin-top: 8px; }
-    .testimonial {
-      background: var(--surface);
-      border: 1px solid var(--border);
+    /* Social proof — screenshots */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .proof-item { display: flex; flex-direction: column; gap: 10px; }
+    .proof-item img {
+      width: 100%;
       border-radius: 10px;
-      padding: 24px 28px;
+      border: 1px solid var(--border);
+      display: block;
     }
-    .testimonial blockquote {
-      font-size: 17px;
-      color: var(--text);
-      line-height: 1.75;
-      margin-bottom: 14px;
-      font-style: italic;
-    }
-    .testimonial cite {
-      font-size: 15px;
+    .proof-caption {
+      font-size: 14px;
       color: var(--muted);
-      font-style: normal;
+      line-height: 1.5;
+    }
+    @media (max-width: 540px) {
+      .proof-grid { grid-template-columns: 1fr; }
     }
 
     /* Steps */
@@ -425,18 +427,22 @@
       <div class="label">From creators using Donna</div>
       <h2>What early users are saying</h2>
 
-      <div class="testimonials">
-        <div class="testimonial">
-          <blockquote>"I used to spend 15 minutes at the start of every Claude session explaining my whole setup. Now I open it and Donna has already loaded everything. I get straight to work."</blockquote>
-          <cite>— Early access tester, productivity newsletter</cite>
+      <div class="proof-grid">
+        <div class="proof-item">
+          <img src="proof/1.jpg" alt="User feedback — 10 content ideas from real search data" />
+          <p class="proof-caption">Fetched 10 content ideas from live search data in one session.</p>
         </div>
-        <div class="testimonial">
-          <blockquote>"The audit alone was worth it. I thought I knew what my newsletter was about. Donna showed me three places where my positioning contradicted itself. Fixed in one session."</blockquote>
-          <cite>— Early access tester, creator economy newsletter</cite>
+        <div class="proof-item">
+          <img src="proof/2.jpg" alt="Donna building a 7-step content SOP saved to Notion" />
+          <p class="proof-caption">Built and saved a 7-step content SOP to Notion — automatically.</p>
         </div>
-        <div class="testimonial">
-          <blockquote>"I have tried five different ways to give Claude context. This is the only one where the output actually sounds like me from the first message."</blockquote>
-          <cite>— Early access tester, finance newsletter</cite>
+        <div class="proof-item">
+          <img src="proof/3.jpg" alt="Quick Wins audit identifying actionable fixes" />
+          <p class="proof-caption">Quick Wins audit — specific, actionable fixes identified in one session.</p>
+        </div>
+        <div class="proof-item">
+          <img src="proof/4.jpg" alt="Steve's unsolicited message after his first full audit session" />
+          <p class="proof-caption">"Walked away sharper for it. Respect from the bottom of the world." — Steve</p>
         </div>
       </div>
     </div>
