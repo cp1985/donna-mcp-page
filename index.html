@@ -5,5 +5,601 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Donna — The 2nd brain for Substack creators already making money</title>
   <meta name="description" content="Donna: next week’s what to write, what’s working, and what’s next — decided, drafted, and scheduled in one sitting. For Substack creators already making money." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --surface2: #1c1c1c;
+      --border: #252525;
+      --text: #e8e8e8;
+      --muted: #888;
+      --accent: #c9a96e;
+      --accent-dim: rgba(201, 169, 110, 0.12);
+      --accent-border: rgba(201, 169, 110, 0.25);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 700px; margin: 0 auto; padding: 0 24px; }
+
+    nav { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 600; font-size: 15px; }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0d0d0d;
+      background: var(--accent);
+      padding: 8px 18px;
+      border-radius: 6px;
+      transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.88; text-decoration: none; }
+
+    section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+
+    .label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5.5vw, 46px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+    }
+    h2 {
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      margin-bottom: 24px;
+    }
+    h3 { font-size: 19px; font-weight: 600; margin-bottom: 8px; }
+
+    p { color: var(--muted); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    p strong { color: var(--text); }
+
+    .hero { padding: 88px 0 72px; }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: 20px;
+      padding: 4px 14px;
+      margin-bottom: 32px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .hero h1 { max-width: 640px; }
+    .hero-sub {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 40px;
+      line-height: 1.75;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #0d0d0d;
+      font-weight: 700;
+      font-size: 17px;
+      padding: 15px 32px;
+      border-radius: 8px;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.88; text-decoration: none; }
+    .btn-ghost {
+      display: inline-block;
+      color: var(--muted);
+      font-size: 15px;
+      margin-top: 16px;
+    }
+
+    .context-tax {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+    .tax-line {
+      font-size: 17px;
+      color: var(--muted);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tax-line:last-child { border-bottom: none; }
+    .tax-again {
+      font-size: 13px;
+      font-weight: 600;
+      color: #c0392b;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .solution-card {
+      background: var(--surface);
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 32px;
+      margin-top: 32px;
+    }
+    .solution-card p { color: var(--text); opacity: 0.85; }
+
+    .outcomes { display: flex; flex-direction: column; gap: 28px; margin-top: 8px; }
+    .outcome {
+      border-left: 2px solid var(--accent);
+      padding-left: 20px;
+    }
+    .outcome h3 { color: var(--text); }
+    .outcome p { margin-bottom: 0; }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .proof-item { display: flex; flex-direction: column; gap: 10px; }
+    .proof-item img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+    .proof-caption {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    @media (max-width: 540px) {
+      .proof-grid { grid-template-columns: 1fr; }
+    }
+
+    .steps { display: flex; flex-direction: column; gap: 24px; margin-top: 8px; }
+    .step { display: flex; gap: 20px; align-items: flex-start; }
+    .step-num {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .step-body h3 { font-size: 15px; }
+
+    .objections { display: flex; flex-direction: column; gap: 0; margin-top: 8px; }
+    .objection {
+      border-bottom: 1px solid var(--border);
+      padding: 22px 0;
+    }
+    .objection:first-child { border-top: 1px solid var(--border); }
+    .objection h3 {
+      font-size: 17px;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .objection p { margin-bottom: 0; font-size: 16px; }
+
+    .urgency-block {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 36px;
+    }
+    .urgency-block h2 { margin-bottom: 16px; }
+
+    .price-table { display: flex; flex-direction: column; gap: 2px; margin-top: 32px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    .price-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      padding: 18px 24px;
+      background: var(--surface);
+      align-items: center;
+    }
+    .price-row.header {
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+    }
+    .price-row.donna-row {
+      background: var(--accent-dim);
+      border-top: 2px solid var(--accent);
+    }
+    .price-label { font-size: 17px; color: var(--text); }
+    .price-label small { display: block; font-size: 14px; color: var(--muted); margin-top: 3px; font-weight: 400; }
+    .price-label.header-label { font-size: 14px; font-weight: 600; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    .price-val { font-size: 17px; font-weight: 700; color: var(--text); white-space: nowrap; text-align: right; }
+    .price-val.header-val { font-size: 14px; font-weight: 600; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    .price-val.donna-val { color: var(--accent); font-size: 20px; }
+    .time-cost {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-top: 20px;
+    }
+    .time-cost p { font-size: 16px; margin-bottom: 0; }
+    .time-cost strong { color: var(--text); }
+
+    .cta-block {
+      background: var(--surface);
+      border: 1px solid var(--accent-border);
+      border-radius: 14px;
+      padding: 56px 48px;
+      text-align: center;
+    }
+    .cta-block h2 { margin-bottom: 12px; }
+    .cta-block .cta-sub {
+      font-size: 19px;
+      color: var(--muted);
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+    .cta-trust {
+      display: block;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    .scarcity { display: block; font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; }
+
+    .scope-list { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+    .scope-item {
+      font-size: 16px;
+      color: var(--muted);
+      padding-left: 18px;
+      position: relative;
+    }
+    .scope-item::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #444;
+    }
+
+    code {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 13px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 540px) {
+      .hero { padding: 60px 0 56px; }
+      .cta-block { padding: 36px 24px; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 22px; }
+    }
+  </style>
+  <script src="https://gumroad.com/js/gumroad.js"></script>
 </head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-logo"><span>Donna</span> MCP</div>
+      <a href="#get" class="nav-cta">Start Free Trial</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="badge">2nd Brain · Substack · Already making money</div>
+      <h1>Donna: The 2nd brain for Substack creators already making money</h1>
+      <p class="hero-sub">
+        Next week’s what to write, what’s working, and what’s next — decided, drafted, and scheduled in one sitting.
+      </p>
+      <span class="scarcity">⬤ Limited to 20 users — spots filling</span>
+      <a class="gumroad-button btn" href="https://cpleveragingai.gumroad.com/l/donna" data-gumroad-overlay-checkout="true">Start Your Free 7-Day Trial</a>
+      <span class="btn-ghost">No payment needed to start &nbsp;·&nbsp; $30/month after trial &nbsp;·&nbsp; Cancel anytime</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="label">The problem</div>
+      <h2>You already make money on Substack. The three questions still eat the week.</h2>
+      <p>What to write. What’s working. What’s next. Here is what actually happens every time you open Claude to answer them:</p>
+
+      <div class="context-tax">
+        <div class="tax-line"><span>You type your niche.</span><span class="tax-again">Again</span></div>
+        <div class="tax-line"><span>You explain your audience.</span><span class="tax-again">Again</span></div>
+        <div class="tax-line"><span>You describe your voice.</span><span class="tax-again">Again</span></div>
+        <div class="tax-line"><span>You paste in your last few posts so it has context.</span><span class="tax-again">Again</span></div>
+      </div>
+
+      <p>By the time Claude is ready to help, you are already tired. And the output? Generic. Because it does not know you. It knows what you just typed in that session.</p>
+      <p>This is the <strong>Context Tax</strong> — the hidden cost every Substack creator pays, every single day, every single time they open a new chat. You are not building with AI. You are briefing a stranger who forgets you exist the moment the tab closes.</p>
+      <p>You have already proven the idea works. The thing still eating the week is not talent or consistency. It is deciding what to write, reading what’s working, and choosing what’s next — then briefing an AI that forgot last week’s answers.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="label">The solution</div>
+      <h2>Donna is the 2nd brain. The three answers land in one sitting.</h2>
+      <p>Donna is an MCP server that connects Claude to your Notion. Before Claude writes a word, she loads your Creator Portrait — voice, audience, strategy, past decisions, what’s already live.</p>
+      <p><strong>Then she closes the week:</strong> what to write, what’s working, what’s next — decided, drafted, and scheduled before you stand up.</p>
+      <p>You open Claude. Donna loads your context. You leave with next week’s pieces decided, drafted, and on the calendar.</p>
+
+      <div class="solution-card">
+        <p>No more briefing. No more rebuilding. No more leaving a pile of drafts with no decision about what actually goes out.</p>
+        <p style="margin-top: 12px;"><strong>Your Creator Portrait lives in your own Notion.</strong> Not on our servers. We do not store your strategy or your content. You own it. You control it. It goes where you go.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="label">What changes</div>
+      <h2>What changes when the three questions get answered in one sitting</h2>
+
+      <div class="outcomes">
+        <div class="outcome">
+          <h3>What to write — decided, then drafted</h3>
+          <p>Donna already knows your flywheel, gaps, last pieces, and voice. She does not hand you a generic list. She picks next week’s pieces and drafts them in your lane.</p>
+        </div>
+        <div class="outcome">
+          <h3>What’s working — named, not guessed</h3>
+          <p>She reads what you already published and what the audience actually responded to. You leave the sitting knowing what to double down on — not what sounded smart in the chat.</p>
+        </div>
+        <div class="outcome">
+          <h3>What’s next — scheduled before you stand up</h3>
+          <p>You choose what goes out and when. Donna drafts it. The extension puts it on the calendar and publishes at the times you set. Decision, draft, schedule — same sitting.</p>
+        </div>
+        <div class="outcome">
+          <h3>Your Creator Portrait — loaded before you type</h3>
+          <p>Every session starts with niche, voice, audience, strategy, and past decisions already in. That is what makes one sitting possible. You do not rebuild context to get to the three questions.</p>
+        </div>
+        <div class="outcome">
+          <h3>Logged in your Notion, not lost in a chat</h3>
+          <p>Decisions, drafts, and plans land as pages in your workspace — titled, dated, searchable. The 2nd brain stays yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="label">From creators using Donna</div>
+      <h2>What early users are saying</h2>
+
+      <div class="proof-grid">
+        <div class="proof-item">
+          <img src="proof/1.jpg" alt="User feedback — 10 content ideas from real search data" />
+          <p class="proof-caption">Fetched 10 content ideas from live search data in one session.</p>
+        </div>
+        <div class="proof-item">
+          <img src="proof/2.jpg" alt="Donna building a 7-step content SOP saved to Notion" />
+          <p class="proof-caption">Built and saved a 7-step content SOP to Notion — automatically.</p>
+        </div>
+        <div class="proof-item">
+          <img src="proof/3.jpg" alt="Quick Wins audit identifying actionable fixes" />
+          <p class="proof-caption">Quick Wins audit — specific, actionable fixes identified in one session.</p>
+        </div>
+        <div class="proof-item">
+          <img src="proof/4.jpg" alt="Steve's unsolicited message after his first full audit session" />
+          <p class="proof-caption">"Walked away sharper for it. Respect from the bottom of the world." — Steve</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="label">Setup</div>
+      <h2>How to get started in under 10 minutes</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Click the trial button. Enter your email.</h3>
+            <p>Receive your unique Donna URL and setup guide immediately. No payment is taken until your 7-day trial ends.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Add Donna to Claude Desktop in one line.</h3>
+            <p>Copy. Paste. Done. No coding required. The setup guide walks you through every step with screenshots.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Open Claude. Run the one-time audit.</h3>
+            <p>Donna introduces herself, connects to your Notion, and runs <code>audit_substack</code> with your Substack URL. She reads your newsletter and builds your Creator Portrait. Takes about 5 minutes.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Run the sitting. Leave with next week decided, drafted, scheduled.</h3>
+            <p>Context is already loaded. You answer the three questions once. Drafts go out of the chat and onto the calendar before you close Claude.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="label">Before you ask</div>
+      <h2>The real answers to the real questions</h2>
+
+      <div class="objections">
+        <div class="objection">
+          <h3>"I'm not technical."</h3>
+          <p>You do not need to be. Setup is a single line you copy and paste into one settings file. If you can send a Substack email, you can install Donna. Screenshots included in the setup guide.</p>
+        </div>
+        <div class="objection">
+          <h3>"Do I need to pay for Notion?"</h3>
+          <p>Notion's free plan is all you need. Donna creates and manages the workspace pages for you. You just need a free account.</p>
+        </div>
+        <div class="objection">
+          <h3>"Do I need a paid Claude or ChatGPT subscription?"</h3>
+          <p>No. You do not need Claude Pro, ChatGPT Plus, or any paid AI plan. A free Claude account is enough to run Donna. ChatGPT is not required at all.</p>
+        </div>
+        <div class="objection">
+          <h3>"Will Donna write in my voice or sound like a robot?"</h3>
+          <p>Donna builds a voice reference from your actual published work — how you open, how you close, the phrases you use, the stances you take. The output will not be perfect from day one. But it will not sound like it came from a content mill either. It improves as the portrait gets richer.</p>
+        </div>
+        <div class="objection">
+          <h3>"What if I want to cancel?"</h3>
+          <p>Cancel anytime. No questions. No retention emails. Your Notion data stays yours — it does not disappear when you cancel.</p>
+        </div>
+        <div class="objection">
+          <h3>"Is my data safe?"</h3>
+          <p>Your Creator Portrait lives in your Notion workspace — not on our servers. We do not store your content strategy, your voice, or your essays. We only store the email address used to activate your account.</p>
+        </div>
+        <div class="objection">
+          <h3>"How does the credit system work?"</h3>
+          <p>Donna runs on credits. Your 7-day trial comes with <strong>100 credits</strong>. After that, your $30/month subscription gives you <strong>250 credits every month</strong>.</p>
+          <p style="margin-top: 12px;">What costs what: a full Substack audit costs 3 credits. Writing a complete essay costs 3 credits. Everything else — notes, hooks, topic suggestions, content plans, strategy checks — costs 1 credit each. Getting started, logging decisions, and reading your Substack are free. 100 trial credits is enough to run the full audit and build your complete content system several times over.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="urgency-block">
+        <h2>The creators who lock the three questions into one sitting will be hard to catch later.</h2>
+        <p>Every week you spend re-deciding what to write, guessing what’s working, and slipping what’s next is a week the publication stays shallower than the business you already have.</p>
+        <p>You are already making money on Substack. The hard part is proven. What is left is a 2nd brain that remembers last week and finishes this week’s calendar in one sitting.</p>
+        <p><strong>Donna is that 2nd brain.</strong></p>
+        <p>The 7-day trial costs nothing. Setup takes under 10 minutes. By the end of the first real sitting, next week’s what to write, what’s working, and what’s next should be decided, drafted, and scheduled.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="label">Is it worth $30/month?</div>
+      <h2>Compare what you're already paying — in money and in time.</h2>
+      <p>Donna does what a content writer, a content strategist, and a Substack coach do. Here is what those cost in the market right now.</p>
+
+      <div class="price-table">
+        <div class="price-row header">
+          <div class="price-label header-label">What you'd hire instead</div>
+          <div class="price-val header-val">Monthly cost</div>
+        </div>
+        <div class="price-row">
+          <div class="price-label">
+            Freelance content writer
+            <small>4–8 Substack pieces per month. Does not know your strategy or audience deeply.</small>
+          </div>
+          <div class="price-val">$500 – $2,000</div>
+        </div>
+        <div class="price-row">
+          <div class="price-label">
+            Content strategist
+            <small>Monthly strategy review and direction. Does not write the content.</small>
+          </div>
+          <div class="price-val">$1,000 – $3,000</div>
+        </div>
+        <div class="price-row">
+          <div class="price-label">
+            Substack growth coach
+            <small>Calls, feedback, accountability. 2–4 sessions per month.</small>
+          </div>
+          <div class="price-val">$300 – $800</div>
+        </div>
+        <div class="price-row donna-row">
+          <div class="price-label">
+            <strong>Donna MCP</strong>
+            <small>What to write, what’s working, what’s next — decided, drafted, and scheduled in one sitting. In your voice. With your context.</small>
+          </div>
+          <div class="price-val donna-val">$30/month</div>
+        </div>
+      </div>
+
+      <div class="time-cost">
+        <p><strong>And that's before counting your time.</strong> If you open Claude three times a week and spend 15 minutes rebuilding context each session — that's 3 hours a month minimum. If your time is worth $30 an hour, the Context Tax alone costs you $150 a month. More than Donna. Just in setup friction.</p>
+      </div>
+
+      <div class="time-cost" style="margin-top: 16px;">
+        <p><strong>What's included:</strong> Your 7-day trial comes with <strong>100 credits</strong>. After trial, your $30/month plan includes <strong>250 credits every month</strong> — more than enough to run your full content operation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="get">
+    <div class="container">
+      <div class="cta-block">
+        <h2>Start your free 7-day trial</h2>
+        <p class="cta-sub">
+          7 days free. No payment needed to start.<br>
+          After the trial: $30/month. Cancel anytime. No lock-in. No questions asked.<br><br>
+          What you get on day one: Donna installed in Claude, your Creator Portrait built, and a sitting that can leave next week decided, drafted, and scheduled.
+        </p>
+        <span class="scarcity">⬤ Limited to 20 users — spots filling</span>
+        <a class="gumroad-button btn" href="https://cpleveragingai.gumroad.com/l/donna" data-gumroad-overlay-checkout="true">Start Free Trial — No Payment Required</a>
+        <span class="cta-trust">Gumroad secure checkout &nbsp;·&nbsp; Cancel any time from your Gumroad account &nbsp;·&nbsp; Your Notion data belongs to you — always</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p style="color: var(--text); font-weight: 600; margin-bottom: 8px;">What Donna is not</p>
+      <div class="scope-list">
+        <div class="scope-item">Donna does not decide what or when to post. She writes it, you choose what to schedule — the extension then publishes it automatically at the times you set.</div>
+        <div class="scope-item">Donna does not access your Substack analytics directly. A Chrome extension syncs your drafts and published notes into her — no copy-pasting required.</div>
+        <div class="scope-item">Donna does not replace your creative judgment — she removes the friction that taxes it.</div>
+        <div class="scope-item">Donna does not write without context. The one-time <code>audit_substack</code> step is required to activate all tools.</div>
+      </div>
+      <p style="margin-top: 32px;">Donna MCP &mdash; the 2nd brain for Substack creators already making money.</p>
+    </div>
+  </footer>
+
+</body>
 </html>
