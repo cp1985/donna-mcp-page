@@ -100,12 +100,31 @@
     <div class="container sitting-wrap">
       <div class="label">See a sitting</div>
       <h2>One chat. Next week on the calendar.</h2>
-      <img src="sitting.png" alt="A sitting in Claude: Donna proposes three pieces, you approve two, they land on the calendar." class="sitting-img" />
-      <div class="scenario-scroll">
-        <img src="scenario-working.png" alt="Donna names what's working and drafts next week in that lane." />
-        <img src="scenario-notes.png" alt="Donna turns an essay into Notes. You approve which ones to schedule." />
-        <img src="scenario-context.png" alt="Donna loads the portrait and proposes the next piece without a re-brief." />
+      <div class="carousel">
+        <img class="slide active" src="sitting.png" alt="Donna proposes three pieces. You approve two. They land on the calendar." />
+        <img class="slide" src="scenario-working.png" alt="Donna names what's working and drafts next week in that lane." />
+        <img class="slide" src="scenario-notes.png" alt="Donna turns an essay into Notes. You approve which ones to schedule." />
+        <img class="slide" src="scenario-context.png" alt="Donna loads the portrait and proposes the next piece without a re-brief." />
+        <div class="carousel-nav">
+          <button type="button" class="car-btn" id="car-prev" aria-label="Previous">← Prev</button>
+          <span class="car-count" id="car-count">1 / 4</span>
+          <button type="button" class="car-btn" id="car-next" aria-label="Next">Next →</button>
+        </div>
       </div>
+      <script>
+        (function(){
+          var slides = document.querySelectorAll(".carousel .slide");
+          var i = 0;
+          var count = document.getElementById("car-count");
+          function show(n){
+            i = (n + slides.length) % slides.length;
+            slides.forEach(function(s, idx){ s.classList.toggle("active", idx === i); });
+            count.textContent = (i + 1) + " / " + slides.length;
+          }
+          document.getElementById("car-prev").onclick = function(){ show(i - 1); };
+          document.getElementById("car-next").onclick = function(){ show(i + 1); };
+        })();
+      </script>
       
     </div>
   </section>
