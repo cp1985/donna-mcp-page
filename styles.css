@@ -441,23 +441,17 @@ footer {
 
 .scenario-scroll {
   display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 16px 0 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
   width: 100%;
-  -webkit-overflow-scrolling: touch;
+  margin-top: 24px;
 }
 .scenario-scroll img {
-  flex: 0 0 min(85%, 520px);
-  scroll-snap-align: center;
+  width: min(100%, 640px);
+  height: auto;
   border-radius: 14px;
   border: 1px solid #333;
-  height: auto;
+  display: block;
 }
-.scenario-hint {
-  text-align: center;
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 8px;
-}
+.scenario-hint { display: none; }
