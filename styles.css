@@ -422,3 +422,5 @@ footer {
   .hero-actions { flex-direction: column; align-items: stretch; }
   .btn, .btn-secondary { text-align: center; }
 }
+
+.sitting-img { width: 100%; height: auto; border-radius: 14px; border: 1px solid #333; display: block; margin-top: 8px; }
