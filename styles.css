@@ -410,7 +410,9 @@ footer {
   color: var(--body);
 }
 @media (max-width: 720px) {
-  .nav-links { display: none; }
+  nav .container { flex-wrap: wrap; }
+  .nav-links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .nav-cta { margin-left: 0; }
   .price-row { grid-template-columns: 1fr; gap: 6px; }
   .price-val { text-align: left; }
 }
