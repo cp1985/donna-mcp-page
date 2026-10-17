@@ -438,3 +438,26 @@ footer {
   display: block;
   margin: 16px auto 0;
 }
+
+.scenario-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 16px 0 8px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+.scenario-scroll img {
+  flex: 0 0 min(85%, 520px);
+  scroll-snap-align: center;
+  border-radius: 14px;
+  border: 1px solid #333;
+  height: auto;
+}
+.scenario-hint {
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 8px;
+}
