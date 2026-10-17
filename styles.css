@@ -21,7 +21,7 @@ body {
 }
 a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { color: #f5d9a0; text-decoration-thickness: 2px; }
-.container { max-width: 700px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
 .container-wide { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 .topbar {
   background: var(--surface2);
@@ -36,7 +36,7 @@ a:hover { color: #f5d9a0; text-decoration-thickness: 2px; }
 }
 nav { border-bottom: 1px solid var(--border); padding: 16px 0; background: var(--bg); }
 nav .container {
-  max-width: 960px;
+  max-width: 1040px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,7 +63,7 @@ nav .container {
   text-decoration: none !important;
 }
 .nav-cta:hover { opacity: 0.9; }
-section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+section { padding: 96px 0; border-bottom: 1px solid var(--border); }
 section:last-of-type { border-bottom: none; }
 .label {
   font-size: 12px;
@@ -94,18 +94,18 @@ p { color: var(--body); margin-bottom: 16px; }
 p:last-child { margin-bottom: 0; }
 p strong { color: var(--text); }
 .hero { padding: 40px 0 48px; }
-.hero h1 { max-width: 640px; margin-top: 0; }
+.hero h1 { max-width: 820px; margin-top: 0; }
 .hero-sub {
   font-size: 20px;
   color: var(--body);
-  max-width: 580px;
+  max-width: 720px;
   margin-bottom: 12px;
   line-height: 1.55;
 }
 .hero-mech {
   font-size: 17px;
   color: var(--text);
-  max-width: 580px;
+  max-width: 720px;
   margin-bottom: 24px;
   line-height: 1.5;
 }
