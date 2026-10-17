@@ -480,3 +480,13 @@ footer {
 }
 .car-btn:hover { border-color: var(--accent); color: var(--accent); }
 .car-count { font-size: 14px; color: var(--muted); min-width: 48px; text-align: center; }
+
+.split-pages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .split-pages { grid-template-columns: 1fr; gap: 48px; }
+}
