@@ -5,69 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Donna vs WriteStack — Honest Comparison for Substack Creators</title>
   <meta name="description" content="Donna vs WriteStack: what WriteStack does better on queue and analytics, and where Donna is a different job — deciding what to write next in one Claude sitting." />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" />
+  <link rel="stylesheet" href="site.css" />
   <script src="https://gumroad.com/js/gumroad.js"></script>
 </head>
 <body>
-  <nav>
-    <div class="container">
-      <div class="nav-logo"><a href="index.html"><span>Donna</span> MCP</a></div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#sitting">How it works</a>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">Donna</a>
+      <nav class="nav-links">
+        <a href="index.html#how">How it works</a>
         <a href="comparisons.html">Comparisons</a>
         <a href="alternatives.html">Alternatives</a>
         <a href="index.html#faq">FAQ</a>
         <a href="index.html#pricing">Pricing</a>
-        <a href="index.html#get" class="nav-cta">Start Free Trial</a>
-      </div>
+        <a class="btn" href="https://cpleveragingai.gumroad.com/l/donna" data-gumroad-overlay-checkout="true">Start your free 7-day trial</a>
+      </nav>
     </div>
-  </nav>
-  <section class="hero">
-    <div class="container">
-      <div class="label">Comparison</div>
+  </header>
+  <main>
+  <section class="hero sub-hero">
+    <div class="wrap">
       <h1>Donna vs WriteStack</h1>
-      <p class="hero-sub">WriteStack is the deepest Substack-only growth suite. Donna is a 2nd brain that closes the weekly decision in Claude. They overlap on scheduling. They are not the same product.</p>
+      <p class="sub">WriteStack is the deepest Substack-only growth suite. Donna is a 2nd brain that closes the weekly decision in Claude. They overlap on scheduling. They are not the same product.</p>
+      <p class="checked">Facts checked against each tool's own site on 25 October 2026. Prices change; check before you buy.</p>
     </div>
   </section>
   <section>
-    <div class="container">
+    <div class="wrap article">
       <h2>What WriteStack actually is</h2>
-      <p>WriteStack is a Substack-only suite built around Notes. You queue Notes, sync them through a Chromium extension into Substack’s own scheduler, and get analytics, viral-notes research, AI drafting trained on your content, and (on higher tiers) a Claude MCP. Pricing as of 2026 runs about $23.99 / $32.99 / $99.99 a month, or lower on annual billing, with a 7-day trial and no free plan. One account covers one Substack. Notes only — not articles.</p>
-      <p>Its real strength is the layer Substack itself does not give you: which Notes drove subscribers, link-click history, benchmarks against other publications, a searchable feed of high-performing Notes, and a queue you can reorder. After Substack shipped native Notes scheduling in 2026, WriteStack kept growing because the queue and the data were the product, not the act of scheduling one Note.</p>
+      <p>WriteStack is a Substack-only suite built around Notes. You queue Notes, schedule them in WriteStack, and click Sync so a browser extension publishes them to Substack. You also get analytics, AI drafting (Quill) that learns from your published work, and MCP tools to draft, tag, check capacity, and queue. Plans are $23.99, $32.99, and $99.99 a month (Hobbyist, Standard, Enterprise), with annual billing from $19.99 a month. Every plan has a 7-day trial. There is no free plan. Notes only: WriteStack says it is not meant for publishing long-form Substack posts.</p>
+      <p>Its real strength is the layer Substack itself does not give you: analytics on which Notes brought free and paid subscribers, and a queue built for Notes. Substack added native Notes scheduling in 2026. What WriteStack sells on top of that is the queue and the data, not the act of scheduling one Note.</p>
       <h2>What Donna actually is</h2>
-      <p>Donna is a Claude MCP that loads a Creator Portrait from your Notion — voice, audience, strategy, past decisions, what’s already live — then proposes what to write, what’s working, and what’s next. You approve. A Chrome extension schedules the approved pieces. Nothing publishes in the sitting. Your portrait stays in your Notion. $30/month after a 7-day trial.</p>
+      <p>Donna is a Claude MCP that loads a Creator Portrait from your Notion — voice, audience, strategy, past decisions, what’s already live — then proposes what to write, what’s working, and what’s next. You approve. The Chrome extension puts your approved Notes into your Substack drafts with the times you set. Nothing publishes in the sitting. Your portrait stays in your Notion. $30/month after a 7-day trial.</p>
       <h2>Side by side</h2>
-      <div class="price-table">
-        <div class="price-row header"><div class="price-label header-label">Job</div><div class="price-val header-val">Who does it</div></div>
-        <div class="price-row"><div class="price-label">Batch queue of Notes<small>Reorder, sync, hand off to Substack.</small></div><div class="price-val">WriteStack is stronger</div></div>
-        <div class="price-row"><div class="price-label">Subscriber and link analytics<small>Which Notes converted, benchmarks, trends.</small></div><div class="price-val">WriteStack</div></div>
-        <div class="price-row"><div class="price-label">Viral-notes research feed<small>Search high-performing Notes across Substack.</small></div><div class="price-val">WriteStack</div></div>
-        <div class="price-row"><div class="price-label">Decide what to write next<small>From full strategy, not just style samples.</small></div><div class="price-val">Donna</div></div>
-        <div class="price-row"><div class="price-label">One sitting that closes the week<small>Propose, draft, approve, schedule.</small></div><div class="price-val">Donna</div></div>
-        <div class="price-row"><div class="price-label">Context lives in your Notion<small>Not on the vendor’s servers.</small></div><div class="price-val">Donna</div></div>
-        <div class="price-row"><div class="price-label">MCP in Claude<small>WriteStack on higher tiers. Donna is Claude-native.</small></div><div class="price-val">Both, differently</div></div>
-        <div class="price-row"><div class="price-label">Price<small>WriteStack from ~$20–24/mo. Donna $30/mo.</small></div><div class="price-val">WriteStack cheaper</div></div>
-      </div>
+      <table class="compare">
+        <thead><tr><th>Job</th><th>Who does it</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Batch queue of Notes</strong><span>Queue Notes, schedule them, sync to Substack.</span></td><td>WriteStack is stronger</td></tr>
+          <tr><td><strong>Subscriber analytics</strong><span>Which Notes brought free and paid subscribers.</span></td><td>WriteStack</td></tr>
+          <tr><td><strong>Decide what to write next</strong><span>From full strategy, not just style samples.</span></td><td>Donna</td></tr>
+          <tr><td><strong>One sitting that closes the week</strong><span>Propose, draft, approve, then schedule your Notes.</span></td><td>Donna</td></tr>
+          <tr><td><strong>Your portrait stays in your Notion</strong><span>Voice, audience, strategy and decisions live in your workspace.</span></td><td>Donna</td></tr>
+          <tr><td><strong>MCP in Claude</strong><span>WriteStack has MCP tools. Donna is Claude-native.</span></td><td>Both, differently</td></tr>
+          <tr><td><strong>Price</strong><span>WriteStack from $19.99 billed annually, $23.99 monthly. Donna $30/mo.</span></td><td>WriteStack cheaper</td></tr>
+        </tbody>
+      </table>
       <h2>Who should pick WriteStack</h2>
-      <p>You already know what to write. The pain is the queue, the analytics, and finding Notes that are working in your niche. You want a Substack-only dashboard and do not need a second brain that remembers last week’s strategy. WriteStack is the better tool for that job, and it is often cheaper.</p>
+      <p>You already know what to write. The pain is the queue and the analytics. You want a Substack-only dashboard and do not need a second brain that remembers last week’s strategy. WriteStack is the better tool for that job, and it is often cheaper.</p>
       <h2>Who should pick Donna</h2>
       <p>You already make money on Substack. The thing eating the week is deciding what to write, reading what’s working, and choosing what’s next — then briefing Claude again because the last chat forgot you. Donna loads that context from Notion and closes the week in one sitting. She is not a replacement for WriteStack’s analytics dashboard.</p>
-      <p><a href="writestack-alternative.html">WriteStack alternative page</a> · <a href="comparisons.html">All comparisons</a></p>
+      <p><a href="writestack-alternative.html">WriteStack alternative page</a></p>
+      <p><a href="comparisons.html">All comparisons</a></p>
     </div>
   </section>
   <section id="get">
-    <div class="container">
-      <div class="cta-block">
-        <h2>Try Donna free for 7 days</h2>
-        <p class="cta-sub">No payment to start. After trial: $30/month. Cancel anytime.</p>
-        <a class="gumroad-button btn" href="https://cpleveragingai.gumroad.com/l/donna" data-gumroad-overlay-checkout="true">Start Free Trial</a>
-      </div>
+    <div class="wrap article">
+      <h2>Try Donna free for 7 days</h2>
+      <p>Nothing is charged for 7 days. $30 a month after that. Cancel anytime.</p>
+      <div class="cta"><a class="btn" href="https://cpleveragingai.gumroad.com/l/donna" data-gumroad-overlay-checkout="true">Start your free 7-day trial</a></div>
     </div>
   </section>
+  </main>
   <footer>
-    <div class="container">
-      <p><a href="index.html">Donna MCP</a> — the 2nd brain for Substack creators already making money.</p>
+    <div class="wrap">
+      <p>Contact: <a href="mailto:cpleveragingai@substack.com">cpleveragingai@substack.com</a></p>
+      <p><a href="index.html">Donna MCP</a>, the 2nd brain for Substack creators who already make money.</p>
     </div>
   </footer>
 </body>

@@ -176,3 +176,27 @@ footer { padding: 40px 0 56px; border-top: 1px solid var(--rule); font-size: 15p
   .day b { width: 40px; flex-shrink: 0; }
   .slot { flex: 1; }
 }
+
+/* Comparison and alternative pages */
+.sub-hero { padding: 64px 0 40px; }
+.sub-hero h1 { max-width: 820px; }
+.sub-hero .sub { max-width: 720px; margin-top: 18px; font-size: 20px; }
+.article > * { max-width: 720px; }
+.article h2 { margin-top: 48px; margin-bottom: 14px; font-size: 32px; }
+.article h2:first-child { margin-top: 0; }
+table.compare { width: 100%; max-width: 820px; border-collapse: collapse; margin-top: 8px; font-size: 17px; }
+.compare th { text-align: left; font-size: 15px; color: var(--slate); font-weight: 600; padding: 10px 12px 10px 0; border-bottom: 1.5px solid var(--ink); }
+.compare td { padding: 14px 12px 14px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.compare td span { display: block; color: var(--slate); font-size: 15px; margin-top: 2px; }
+.compare td:last-child { width: 34%; font-weight: 600; }
+.cardlist { list-style: none; max-width: 820px; }
+.cardlist li { padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.cardlist li:first-child { border-top: 1px solid var(--rule); }
+.cardlist li a { font-family: var(--serif); font-size: 24px; font-weight: 600; }
+.cardlist li span { display: block; color: var(--slate); margin-top: 4px; }
+@media (max-width: 600px) {
+  .sub-hero { padding: 40px 0 24px; }
+  .article h2 { font-size: 25px; }
+  .compare td:last-child { width: 38%; }
+}
+.checked { margin-top: 14px; font-size: 14px; color: var(--slate); }

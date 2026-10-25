@@ -5,67 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Donna vs Eden — Honest Comparison for Substack Creators</title>
   <meta name="description" content="Donna vs Eden: Eden is a cross-platform creator system with native Substack handoff. Donna is a Substack-only 2nd brain in Claude. Honest comparison." />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" />
+  <link rel="stylesheet" href="site.css" />
   <script src="https://gumroad.com/js/gumroad.js"></script>
 </head>
 <body>
-  <nav>
-    <div class="container">
-      <div class="nav-logo"><a href="index.html"><span>Donna</span> MCP</a></div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#sitting">How it works</a>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">Donna</a>
+      <nav class="nav-links">
+        <a href="index.html#how">How it works</a>
         <a href="comparisons.html">Comparisons</a>
         <a href="alternatives.html">Alternatives</a>
         <a href="index.html#faq">FAQ</a>
         <a href="index.html#pricing">Pricing</a>
-        <a href="index.html#get" class="nav-cta">Start Free Trial</a>
-      </div>
+        <a class="btn" href="https://cpleveragingai.gumroad.com/l/donna" data-gumroad-overlay-checkout="true">Start your free 7-day trial</a>
+      </nav>
     </div>
-  </nav>
-  <section class="hero">
-    <div class="container">
-      <div class="label">Comparison</div>
+  </header>
+  <main>
+  <section class="hero sub-hero">
+    <div class="wrap">
       <h1>Donna vs Eden</h1>
-      <p class="hero-sub">Eden is a full creator workspace: research, scheduling across eight platforms, and native handoff of Substack Notes and articles. Donna is a Substack sitting inside Claude.</p>
+      <p class="sub">Eden is a full creator workspace: research, scheduling across eight platforms, and native handoff of Substack Notes and articles. Donna is a Substack sitting inside Claude.</p>
+      <p class="checked">Facts checked against each tool's own site on 25 October 2026. Prices change; check before you buy.</p>
     </div>
   </section>
   <section>
-    <div class="container">
+    <div class="wrap article">
       <h2>What Eden actually is</h2>
-      <p>Eden schedules to X, Threads, LinkedIn, Instagram, TikTok, Facebook, YouTube Shorts, and Substack. For Substack, most text Notes and articles are handed to Substack’s own scheduler, so they can publish with devices off once the handoff is done. Threads and some image Notes still need Chrome or the desktop app near the slot. Scheduling is on Starter and up, from about $29/month (or ~$25 billed yearly). There is a free plan and a $5 Discover plan with a tiny scheduling cap. Eden also includes a research feed, Custom AI, analytics history on paid plans, and MCP for social posts and scheduling.</p>
-      <p>It is the broadest product in this set. It is also the one most people will not need if Substack is the only channel that pays them.</p>
+      <p>Eden schedules to X, Threads, LinkedIn, Instagram, TikTok, Facebook, YouTube Shorts, and Substack. For Substack, text Notes and articles go to Substack’s own scheduler and post with your devices off. Image Notes are handed off through Chrome with the extension. Threads of Notes post live, so Chrome with the extension or the Mac app must be on within 10 minutes of the slot. Eden’s own pages are not fully consistent on image Notes. Social scheduling starts on the Starter plan. Eden’s own pages give two Starter prices: $25 a month billed yearly ($299 a year), and $29 a month billed monthly. The Free and Personal plans do not include social scheduling. Eden also includes Discover (research and outlier search), Custom AI on Pro and above, analytics history of 30, 90, or 365 days depending on the plan, and an MCP that can draft, schedule, publish, and pull analytics.</p>
+      <p>It is one of the broadest products in this set. It is also the one most people will not need if Substack is the only channel that pays them.</p>
       <h2>What Donna actually is</h2>
-      <p>Donna does not schedule Instagram or X. It loads your Substack strategy from Notion into Claude, proposes the week, and schedules what you approve. $30/month.</p>
+      <p>Donna does not schedule Instagram or X. It loads your Substack strategy from Notion into Claude, proposes the week, and schedules the Notes you approve. $30/month.</p>
       <h2>Side by side</h2>
-      <div class="price-table">
-        <div class="price-row header"><div class="price-label header-label">Job</div><div class="price-val header-val">Who does it</div></div>
-        <div class="price-row"><div class="price-label">One queue for 8 platforms<small>Including Substack Notes and articles.</small></div><div class="price-val">Eden</div></div>
-        <div class="price-row"><div class="price-label">Native Substack handoff<small>Devices can be off after handoff.</small></div><div class="price-val">Eden is stronger here</div></div>
-        <div class="price-row"><div class="price-label">Research feed and creator discovery<small>What is overperforming in the niche.</small></div><div class="price-val">Eden</div></div>
-        <div class="price-row"><div class="price-label">Decide the Substack week from a portrait<small>Strategy and past decisions, in Claude.</small></div><div class="price-val">Donna</div></div>
-        <div class="price-row"><div class="price-label">You own the context<small>Notion, not a vendor workspace.</small></div><div class="price-val">Donna</div></div>
-        <div class="price-row"><div class="price-label">Price for the scheduling job<small>Eden Starter ~$29. Donna $30.</small></div><div class="price-val">Similar</div></div>
-      </div>
+      <table class="compare">
+        <thead><tr><th>Job</th><th>Who does it</th></tr></thead>
+        <tbody>
+          <tr><td><strong>One queue for 8 platforms</strong><span>Including Substack Notes and articles.</span></td><td>Eden</td></tr>
+          <tr><td><strong>Native Substack handoff</strong><span>Text Notes and articles post with devices off.</span></td><td>Eden is stronger here</td></tr>
+          <tr><td><strong>Research and outlier search</strong><span>What is overperforming in the niche.</span></td><td>Eden</td></tr>
+          <tr><td><strong>Decide the Substack week from a portrait</strong><span>Strategy and past decisions, in Claude.</span></td><td>Donna</td></tr>
+          <tr><td><strong>You own the context</strong><span>Notion, not a vendor workspace.</span></td><td>Donna</td></tr>
+          <tr><td><strong>Price for the scheduling job</strong><span>Eden Starter $25 to $29 (its pages differ). Donna $30.</span></td><td>Similar</td></tr>
+        </tbody>
+      </table>
       <h2>Who should pick Eden</h2>
       <p>You publish on several platforms and want one queue, research, and a durable Substack handoff. Eden is the better system for that.</p>
       <h2>Who should pick Donna</h2>
-      <p>You do not need eight platforms. You need the Substack week decided, drafted, and scheduled in one Claude sitting, with the portrait in your Notion.</p>
-      <p><a href="eden-alternative.html">Eden alternative page</a> · <a href="comparisons.html">All comparisons</a></p>
+      <p>You do not need eight platforms. You need the Substack week decided and drafted in one Claude sitting, and your approved Notes scheduled, with the portrait in your Notion.</p>
+      <p><a href="eden-alternative.html">Eden alternative page</a></p>
+      <p><a href="comparisons.html">All comparisons</a></p>
     </div>
   </section>
   <section id="get">
-    <div class="container">
-      <div class="cta-block">
-        <h2>Try Donna free for 7 days</h2>
-        <p class="cta-sub">No payment to start. After trial: $30/month. Cancel anytime.</p>
-        <a class="gumroad-button btn" href="https://cpleveragingai.gumroad.com/l/donna" data-gumroad-overlay-checkout="true">Start Free Trial</a>
-      </div>
+    <div class="wrap article">
+      <h2>Try Donna free for 7 days</h2>
+      <p>Nothing is charged for 7 days. $30 a month after that. Cancel anytime.</p>
+      <div class="cta"><a class="btn" href="https://cpleveragingai.gumroad.com/l/donna" data-gumroad-overlay-checkout="true">Start your free 7-day trial</a></div>
     </div>
   </section>
+  </main>
   <footer>
-    <div class="container">
-      <p><a href="index.html">Donna MCP</a> — the 2nd brain for Substack creators already making money.</p>
+    <div class="wrap">
+      <p>Contact: <a href="mailto:cpleveragingai@substack.com">cpleveragingai@substack.com</a></p>
+      <p><a href="index.html">Donna MCP</a>, the 2nd brain for Substack creators who already make money.</p>
     </div>
   </footer>
 </body>
